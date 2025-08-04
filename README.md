@@ -44,11 +44,6 @@ This IoT weather monitoring system demonstrates:
 - **5-Day Forecast**: Weather predictions with detailed daily breakdowns
 - **Responsive Design**: Mobile-first approach with beautiful glassmorphism UI
 
-### 🤖 AI & Machine Learning
-- **Temperature Prediction**: Neural network model for weather forecasting
-- **Data Analytics**: Historical trend analysis and pattern recognition
-- **Smart Alerts**: Intelligent notifications based on weather patterns
-
 ### 🔐 Security & Authentication
 - **JWT Authentication**: Secure token-based user authentication
 - **Protected Routes**: Role-based access control for sensitive data
