@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 /* Components */
 import TemperatureCrad from "../components/TemperatureCrad";
@@ -24,13 +24,13 @@ const Content = () => {
         data: [],
         fill: false,
         borderColor: "#ff811f",
-        tension: 0.1
-      }
+        tension: 0.1,
+      },
     ],
     options: {
       responsive: true,
       maintainAspectRatio: false,
-    }
+    },
   });
 
   // Function to fetch the latest temperature
@@ -44,7 +44,7 @@ const Content = () => {
     } catch (error) {
       console.error("Error getting latest temperature: ", error);
     }
-  }
+  };
 
   // Function to fetch the temperature history for the last 10 hours
   const getTemperatureHistory = async () => {
@@ -66,7 +66,7 @@ const Content = () => {
     } catch (error) {
       console.error("Error getting temperature history: ", error);
     }
-  }
+  };
 
   // Auto-refresh every 10 seconds
   useEffect(() => {
@@ -81,15 +81,18 @@ const Content = () => {
     return () => clearInterval(interval);
   }, []);
 
-
   return (
-    
     <div className="flex flex-col gap-8 py-12 px-6">
-      <div className="w-full flex flex-col gap-2 text-left">
-        <h1 className="font-bold text-3xl">
-          Temperature Dashboard
-        </h1>
-        <p className="text-sm font-light text-gray-400">
+      <div 
+        className="w-full flex flex-col gap-2 text-left p-6 rounded-xl"
+        style={{
+          background: "rgba(255,255,255,0.1)",
+          backdropFilter: "blur(10px)",
+          border: "1px solid rgba(255,255,255,0.2)",
+        }}
+      >
+        <h1 className="font-bold text-3xl text-white">Temperature Dashboard</h1>
+        <p className="text-sm font-light text-gray-200">
           Monitor real-time temperature data and historical trends
         </p>
       </div>
@@ -107,7 +110,7 @@ const Content = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Content;

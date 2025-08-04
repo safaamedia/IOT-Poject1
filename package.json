@@ -1,0 +1,28 @@
+{
+  "name": "iot-project",
+  "version": "1.0.0",
+  "description": "A full-stack mini project that retrieves real-time temperature data from a public sensor API and displays it on a modern dashboard.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Meddd01/IOT-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Meddd01/IOT-Project/issues"
+  },
+  "homepage": "https://github.com/Meddd01/IOT-Project#readme",
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^7.0.0",
+    "@fortawesome/react-fontawesome": "^0.2.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.536.0",
+    "tailwindcss-animate": "^1.0.7"
+  }
+}

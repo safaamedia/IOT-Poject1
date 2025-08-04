@@ -1,5 +1,6 @@
 import requests
 import time
+import sqlite3
 from datetime import datetime
 from models import get_db_connection, DEFAULT_LATITUDE, DEFAULT_LONGITUDE
 from app import predict_for_day

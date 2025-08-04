@@ -12,6 +12,7 @@ from sklearn.preprocessing import MinMaxScaler
 from flask import Flask, jsonify, request, send_from_directory
 from services.weather_fetcher import *
 from models import *
+from auth import AuthManager, token_required, init_auth_db, get_user_by_username, create_user
 
 load_dotenv()
 app = Flask(__name__)
@@ -26,6 +27,7 @@ last_prediction_time = None
 
 # Initialize database
 init_db()
+init_auth_db()  # Initialize authentication tables
 
 def run_background_services():
     def temperature_updater():
@@ -66,7 +68,97 @@ def run_background_services():
     
     print("All background services started successfully")
 
+# Authentication Routes
+@app.route('/api/auth/login', methods=['POST'])
+def login():
+    """User login endpoint"""
+    try:
+        data = request.get_json()
+        if not data or not data.get('username') or not data.get('password'):
+            return jsonify({'error': 'Username and password required'}), 400
+        
+        username = data['username']
+        password = data['password']
+        
+        # Get user from database
+        user = get_user_by_username(username)
+        if not user:
+            return jsonify({'error': 'Invalid credentials'}), 401
+        
+        # Check password
+        auth_manager = AuthManager()
+        if not auth_manager.check_password(user['password_hash'], password):
+            return jsonify({'error': 'Invalid credentials'}), 401
+        
+        # Generate token
+        token = auth_manager.generate_token(user['id'], user['username'])
+        
+        return jsonify({
+            'success': True,
+            'token': token,
+            'user': {
+                'id': user['id'],
+                'username': user['username'],
+                'email': user['email']
+            }
+        })
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/auth/register', methods=['POST'])
+def register():
+    """User registration endpoint"""
+    try:
+        data = request.get_json()
+        if not data or not all(k in data for k in ['username', 'email', 'password']):
+            return jsonify({'error': 'Username, email, and password required'}), 400
+        
+        username = data['username']
+        email = data['email']
+        password = data['password']
+        
+        # Basic validation
+        if len(password) < 6:
+            return jsonify({'error': 'Password must be at least 6 characters'}), 400
+        
+        # Create user
+        result = create_user(username, email, password)
+        
+        if 'error' in result:
+            return jsonify({'error': result['error']}), 400
+        
+        # Generate token for new user
+        auth_manager = AuthManager()
+        token = auth_manager.generate_token(result['id'], result['username'])
+        
+        return jsonify({
+            'success': True,
+            'token': token,
+            'user': {
+                'id': result['id'],
+                'username': result['username'],
+                'email': result['email']
+            }
+        }), 201
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/auth/verify', methods=['GET'])
+@token_required
+def verify_token():
+    """Verify token endpoint"""
+    return jsonify({
+        'success': True,
+        'user': {
+            'id': request.current_user['user_id'],
+            'username': request.current_user['username']
+        }
+    })
+
 @app.route('/api/latest', methods=['GET'])
+@token_required
 def get_latest_temperature():
     """Get the latest temperature reading and current hour's average"""
     latitude = request.args.get('latitude', DEFAULT_LATITUDE)
@@ -138,6 +230,7 @@ def get_latest_temperature():
         conn.close()
 
 @app.route('/api/history', methods=['GET'])
+@token_required
 def get_temperature_history():
     """Get the last 10 individual temperature readings"""
     latitude = request.args.get('latitude', DEFAULT_LATITUDE)
