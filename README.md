@@ -44,11 +44,6 @@ This IoT weather monitoring system demonstrates:
 - **5-Day Forecast**: Weather predictions with detailed daily breakdowns
 - **Responsive Design**: Mobile-first approach with beautiful glassmorphism UI
 
-### 🤖 AI & Machine Learning
-- **Temperature Prediction**: Neural network model for weather forecasting
-- **Data Analytics**: Historical trend analysis and pattern recognition
-- **Smart Alerts**: Intelligent notifications based on weather patterns
-
 ### 🔐 Security & Authentication
 - **JWT Authentication**: Secure token-based user authentication
 - **Protected Routes**: Role-based access control for sensitive data
@@ -107,7 +102,7 @@ The application integrates with multiple weather data providers:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Meddd01/IOT-Project.git
+   git clone https://github.com/safaamedia/IOT-Poject1.git
    cd IOT-Project
    ```
 
