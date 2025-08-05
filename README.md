@@ -1,4 +1,4 @@
-# 🌡️ IoT Weather Dashboard
+🌡️ IoT Weather Dashboard
 
 A comprehensive full-stack IoT weather monitoring application that provides real-time temperature and humidity data visualization with advanced analytics and machine learning capabilities.
 
