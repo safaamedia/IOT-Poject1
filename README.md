@@ -108,7 +108,7 @@ The application integrates with multiple weather data providers:
 1. **Clone the repository**
    ```bash
    git clone https://github.com/safaamedia/IOT-Poject1.git
-   cd IOT-Project
+   cd IOT-Poject1
    ```
 
 2. **Backend Setup**
@@ -176,7 +176,7 @@ The application integrates with multiple weather data providers:
 ## 🏗️ Project Structure
 
 ```
-IOT-Project/
+IOT-Poject1/
 ├── backend/                 # Python Flask backend
 │   ├── app.py              # Main application entry
 │   ├── auth.py             # Authentication logic
