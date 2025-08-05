@@ -102,7 +102,7 @@ The application integrates with multiple weather data providers:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/safaamedia/IOT-Project1.git
+   git clone https://github.com/safaamedia/IOT-Poject1.git
    cd IOT-Project
    ```
 
