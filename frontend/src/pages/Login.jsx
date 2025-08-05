@@ -94,7 +94,7 @@ const Login = () => {
   return (
     <div className="w-screen max-w-screen h-screen flex flex-col relative overflow-hidden">
       {/* Header at the top, outside the fixed background */}
-      <Header/>
+      <Header />
       {/* Background image with blur */}
       <div
         className="absolute inset-0 w-full h-full z-0"
@@ -183,7 +183,7 @@ const Login = () => {
                   </div>
                   <button
                     type="submit"
-                    className="w-full py-2 rounded-lg bg-yellow-500 text-white font-semibold text-lg shadow hover:bg-yellow-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-2 rounded-lg bg-green-500 text-white font-semibold text-lg shadow hover:bg-green-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={loading}
                   >
                     {loading ? "Signing In..." : "Sign In"}
@@ -292,7 +292,7 @@ const Login = () => {
                   </div>
                   <button
                     type="submit"
-                    className="w-full py-2 rounded-lg bg-yellow-500 text-white font-semibold text-lg shadow hover:bg-yellow-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-2 rounded-lg bg-green-500 text-white font-semibold text-lg shadow hover:bg-green-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={loading}
                   >
                     {loading ? "Creating Account..." : "Sign Up"}
@@ -304,7 +304,7 @@ const Login = () => {
                   <>
                     Don’t have an account?{" "}
                     <button
-                      className="text-yellow-700 font-semibold hover:underline"
+                      className="text-green-700 font-semibold hover:underline"
                       onClick={() => setShowLogin(false)}
                     >
                       Sign Up
