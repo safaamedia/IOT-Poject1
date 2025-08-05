@@ -8,7 +8,7 @@ A comprehensive full-stack IoT weather monitoring application that provides real
 
 ### Home Dashboard
 ![Home Dashboard](snippets/home%20(1).png)
-*The main dashboard showcasing current weather conditions with a 5-day forecast and real-time temperature, humidity, and air quality metrics.*
+*The main dashboard showcases current weather conditions with a 5-day forecast and real-time temperature, humidity, and air quality metrics.*
 
 ### Humidity Analytics
 ![Login](snippets/home%20(2).png)
@@ -18,9 +18,9 @@ A comprehensive full-stack IoT weather monitoring application that provides real
 ![Temperature Dashboard](snippets/home%20(3).png)
 *Detailed temperature monitoring with historical trends and real-time sensor readings.*
 
-### Humidity Chart
+### User Authentication
 ![Humidity](snippets/home%20(4).png)
-*Secure authentication system with multiple login options including social media integration.*
+*Secure authentication system with multiple login options, including social media integration.*
 
 ---
 
